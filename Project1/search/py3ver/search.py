@@ -85,12 +85,12 @@ def basicSearch(problem, queueStack, get_path_cost = None, heuristic = None):
         startNode = Node(problem.getStartState(), [], 0)
         queueStack.push(startNode, 0)
         
-    visited = set()
+    visited = []
     while not queueStack.isEmpty():
         node = queueStack.pop()
         if node.state in visited:
             continue
-        visited.add(node.state)
+        visited.append(node.state)
         if problem.isGoalState(node.state):
             return node.path
         else:
